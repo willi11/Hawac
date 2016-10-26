@@ -49,6 +49,7 @@ public class Home extends javax.swing.JFrame {
         ingresarApartadoBoton = new javax.swing.JButton();
         abonoBoton = new javax.swing.JButton();
         bienvenidaLabel = new javax.swing.JLabel();
+        usuarioBt = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
 
@@ -103,16 +104,35 @@ public class Home extends javax.swing.JFrame {
         bienvenidaLabel.setText("BIENVENIDOS A HAWAC SYSTEM ");
         bienvenidaLabel.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
+        usuarioBt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tienda/presentation/view/resources/images.jpg"))); // NOI18N
+        usuarioBt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioBtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(ingresarApartadoBoton)
-                .addGap(133, 133, 133)
-                .addComponent(apartadoBuscarBoton)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(bienvenidaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(ingresarApartadoBoton)
+                        .addGap(133, 133, 133)
+                        .addComponent(apartadoBuscarBoton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(logoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(usuarioBt)))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(buscarClienteBoton)
@@ -120,17 +140,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(agregarClienteBoton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(abonoBoton)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(bienvenidaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(logoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1))
+                .addGap(107, 107, 107))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +151,9 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addComponent(logoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usuarioBt))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bienvenidaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30)
@@ -189,6 +201,11 @@ public class Home extends javax.swing.JFrame {
         Application.APARTADOS_VIEW.setVisible(true);
         
     }//GEN-LAST:event_abonoBotonActionPerformed
+
+    private void usuarioBtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioBtActionPerformed
+        // TODO add your handling code here
+        Application.USUARIOS_VIEW.setVisible(true);
+    }//GEN-LAST:event_usuarioBtActionPerformed
 
 //    public void setBienvenidaLabel(String bienvenidaLabel) {
 //        this.bienvenidaLabel.setText( bienvenidaLabel);
@@ -239,5 +256,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel logoLbl;
+    public javax.swing.JButton usuarioBt;
     // End of variables declaration//GEN-END:variables
 }

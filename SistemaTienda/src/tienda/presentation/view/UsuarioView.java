@@ -19,7 +19,7 @@ import tienda.presentation.model.UserModel;
  *
  * @author William
  */
-public class UsuarioView extends javax.swing.JFrame implements java.util.Observer{
+public class UsuarioView extends javax.swing.JFrame{
 
     /**
      * Creates new form UsuarioView
@@ -57,7 +57,6 @@ KeyEvent ke;
 
     public void setModel(UserModel model) {
         this.model = model;
-        this.model.addObserver(this);
         // this.fechaMaximaFld.setVisible(false);
     }
 
@@ -227,8 +226,5 @@ KeyEvent ke;
     public javax.swing.JLabel Usuariolbl;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void update(Observable o, Object o1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

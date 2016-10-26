@@ -68,7 +68,6 @@ public class ClientesView extends javax.swing.JDialog implements java.util.Obser
         jScrollPane1 = new javax.swing.JScrollPane();
         clientesFld = new javax.swing.JTable();
         agregarBtn = new javax.swing.JButton();
-        eliminarBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         nombreRB = new javax.swing.JRadioButton();
         cedulaRB = new javax.swing.JRadioButton();
@@ -114,13 +113,6 @@ public class ClientesView extends javax.swing.JDialog implements java.util.Obser
             }
         });
 
-        eliminarBtn.setText("Eliminar Cliente");
-        eliminarBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarBtnActionPerformed(evt);
-            }
-        });
-
         jLabel1.setText("Buscar por:");
 
         buscarBG.add(nombreRB);
@@ -149,7 +141,6 @@ public class ClientesView extends javax.swing.JDialog implements java.util.Obser
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(apartadosBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(eliminarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(agregarBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,9 +174,7 @@ public class ClientesView extends javax.swing.JDialog implements java.util.Obser
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(agregarBtn)
-                        .addGap(69, 69, 69)
-                        .addComponent(eliminarBtn)
-                        .addGap(63, 63, 63)
+                        .addGap(155, 155, 155)
                         .addComponent(apartadosBtn))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
@@ -208,19 +197,6 @@ public class ClientesView extends javax.swing.JDialog implements java.util.Obser
  //controller.preAgregar();
          Application.CLIENTE_VIEW.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_agregarBtnActionPerformed
-
-    private void eliminarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarBtnActionPerformed
-        int row = this.clientesFld.getSelectedRow();
-        if (this.clientesFld.isRowSelected(row)) {
-            int result = JOptionPane.showConfirmDialog(null, "Está seguro de eliminar al cliente seleccionado?", null, JOptionPane.YES_NO_OPTION);
-            if (result == JOptionPane.YES_OPTION) {
-                controller.borrar(row);
-            }
-        } else {
-            Toolkit.getDefaultToolkit().beep();
-            JOptionPane.showMessageDialog(null, "ERROR AL ELIMINAR, DEBE HABER SELECCIONADO UN CLIENTE", "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_eliminarBtnActionPerformed
 
     private void clientesFldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientesFldMouseClicked
          if (evt.getClickCount() == 2) {
@@ -285,7 +261,6 @@ public class ClientesView extends javax.swing.JDialog implements java.util.Obser
     public javax.swing.JButton buscarBtn;
     public javax.swing.JRadioButton cedulaRB;
     public javax.swing.JTable clientesFld;
-    public javax.swing.JButton eliminarBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextField nombreFld;
