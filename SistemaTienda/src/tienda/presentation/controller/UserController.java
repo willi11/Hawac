@@ -58,6 +58,12 @@ public class UserController {
             System.out.println("contraseña bd " + row.getContraseña() + " contraseña usuario " + view.Contraseña.getText());
             JOptionPane.showMessageDialog(view, "contraseña incorrecta");
         } else {
+            if(row.getTipo().equals("normal")){
+                Application.HOME.usuarioBt.setVisible(false);
+            }
+            else{
+                Application.HOME.usuarioBt.setVisible(true);
+            }
             Application.HOME.setVisible(true);
             //Application.HOME.setBienvenidaLabel("BIENVENIDO " + view.UsuarioTex.getText());
             //Application.HOME.setTipo(row.getTipo());

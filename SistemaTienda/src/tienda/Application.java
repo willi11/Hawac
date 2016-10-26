@@ -17,6 +17,8 @@ import tienda.presentation.controller.ClientesController;
 import tienda.presentation.controller.ProductoController;
 import tienda.presentation.controller.ProductosController;
 import tienda.presentation.controller.UserController;
+import tienda.presentation.controller.UsuarioController;
+import tienda.presentation.controller.UsuariosController;
 import tienda.presentation.model.AbonoModel;
 import tienda.presentation.model.ApartadoModel;
 import tienda.presentation.model.ProductoModel;
@@ -29,9 +31,11 @@ import tienda.presentation.view.FormularioAbono;
 import tienda.presentation.view.FormularioApartado;
 import tienda.presentation.view.FormularioCliente;
 import tienda.presentation.view.FormularioProducto;
+import tienda.presentation.view.FormularioUsuario;
 import tienda.presentation.view.Home;
 import tienda.presentation.view.ProductosView;
 import tienda.presentation.view.UsuarioView;
+import tienda.presentation.view.UsuariosView;
 
 /**
  *
@@ -100,6 +104,15 @@ public class Application {
         AbonosView abonosView = new AbonosView(homeView, true);
         ABONOS_VIEW = abonosView;
         AbonosController abonosController = new AbonosController(abonosView, abonoModel);
+        
+        
+        FormularioUsuario fusuario=new FormularioUsuario(homeView, true);
+        FUSUARIO_VIEW=fusuario;
+        UsuarioController fusuariocontroller=new UsuarioController(fusuario,modeluser);
+        
+        UsuariosView usuarios= new UsuariosView(homeView,true);
+        USUARIOS_VIEW=usuarios;
+        UsuariosController usuarioscontroller=new UsuariosController(usuarios,modeluser);
     }
     
     
@@ -113,6 +126,8 @@ public class Application {
     public static AbonosView ABONOS_VIEW;
     public static Home HOME;
     public static UsuarioView USUARIO_VIEW;
+    public static FormularioUsuario FUSUARIO_VIEW;
+    public static UsuariosView USUARIOS_VIEW;
        
     public static  final int  MODO_AGREGAR=0;
     public static final int MODO_EDITAR=1;

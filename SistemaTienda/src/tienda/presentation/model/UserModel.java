@@ -5,7 +5,9 @@
  */
 package tienda.presentation.model;
 
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 import tienda.entities.Usuario;
 
 /**
@@ -15,7 +17,7 @@ import tienda.entities.Usuario;
 public class UserModel extends java.util.Observable{
        public UserModel() {
         initUsuario();
-       // initUsuarios();
+        initUsuarios();
         
     }
 
@@ -28,7 +30,7 @@ public class UserModel extends java.util.Observable{
 
     private void initUsuario(){
        
-        setProductoCurrent(new Usuario());
+        setUsuarioCurrent(new Usuario());
         clearErrors();
     }
 
@@ -61,61 +63,61 @@ public class UserModel extends java.util.Observable{
         setMensaje("");
         
     }
-    public Usuario getProductoCurrent() {
+    public Usuario getUsuarioCurrent() {
         return usuarioCurrent;
     }
 
-    public void setProductoCurrent(Usuario productoCurrent) {
+    public void setUsuarioCurrent(Usuario productoCurrent) {
         this.usuarioCurrent = productoCurrent;
         setChanged();
-        notifyObservers(PRODUCTO_CURRENT);        
+        notifyObservers(USUARIO_CURRENT);        
     }
 
    
 
 //======== PRODUCTOS ===========
-//    Usuario filtro;
-//    UsuarioTableModel productosModel;
-//    
-//    private void initProductos(){
-//        filtro = new Producto();
-//        List<Producto> rows = new ArrayList<Producto>();
-//        setProductos(rows);
-//    }
-//    
-//    public void setProductos(List<Producto> rows){
-//        int[] cols={ProductoTableModel.ID,ProductoTableModel.NOMBRE,
-//            ProductoTableModel.PRECIO};
-//        setProductosModel(new ProductoTableModel(cols,rows));        
-//    }
-//    
-//    public Producto getFiltro() {
-//        return filtro;
-//    }
-//    
-//    public void setFiltro(Producto filtro) {
-//        this.filtro = filtro;
-//    }
-//    
-//     public ProductoTableModel getProductosModel() {
-//        return productosModel;
-//    }
-//
-//    public void addObserver(java.util.Observer o) {
-//        super.addObserver(o);
-//        setChanged();
-//        notifyObservers(PRODUCTO_CURRENT);
-//        setChanged();        
-//        notifyObservers(PRODUCTOS_MODEL);
-//    }
-//    
-//    public void setProductosModel(ProductoTableModel productosModel) {
-//        this.productosModel = productosModel;
-//        setChanged();
-//        notifyObservers(PRODUCTOS_MODEL);
-//    }
+    Usuario filtro;
+    UsuarioTableModel usuariosModel;
     
-    public static Integer PRODUCTO_CURRENT=1;
-    public static Integer PRODUCTOS_MODEL=2;
+    private void initUsuarios(){
+        filtro = new Usuario();
+        List<Usuario> rows = new ArrayList<Usuario>();
+        setUsuarios(rows);
+    }
+    
+    public void setUsuarios(List<Usuario> rows){
+        int[] cols={UsuarioTableModel.NOMBRE,UsuarioTableModel.CONTRASEÑA,
+            UsuarioTableModel.TIPO};
+        setUsuariosModel(new UsuarioTableModel(cols,rows));        
+    }
+    
+    public Usuario getFiltro() {
+        return filtro;
+    }
+    
+    public void setFiltro(Usuario filtro) {
+        this.filtro = filtro;
+    }
+    
+     public UsuarioTableModel getUsuariosModel() {
+        return usuariosModel;
+    }
+
+    public void addObserver(java.util.Observer o) {
+        super.addObserver(o);
+        setChanged();
+        notifyObservers(USUARIO_CURRENT);
+        setChanged();        
+        notifyObservers(USUARIOS_MODEL);
+    }
+    
+    public void setUsuariosModel(UsuarioTableModel usuariosModel) {
+        this.usuariosModel = usuariosModel;
+        setChanged();
+        notifyObservers(USUARIOS_MODEL);
+    }
+    
+    public static Integer USUARIO_CURRENT=1;
+    public static Integer USUARIOS_MODEL=2;
 }
 

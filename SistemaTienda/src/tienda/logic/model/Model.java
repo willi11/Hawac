@@ -35,6 +35,7 @@ public class Model{
     public Model() {
         this.db = new Database(null, null, null);
     }
+    // ------------------Usuario-----------------
     public Usuario getUsuario(String id) {
         try {
             Usuario c = new Usuario();
@@ -92,6 +93,58 @@ public class Model{
             System.out.println("Se agregó Usuario");
         }
     }
+    public  List<Usuario> searchUsuarios(Usuario filtro) {
+        List<Usuario> resultado;
+        resultado = new ArrayList<Usuario>();
+        try {
+
+             String sql= "SELECT * FROM usuario WHERE nombre LIKE '%%%s%%'";
+            sql = String.format(sql, filtro.getNombre());
+            
+            ResultSet rs = db.executeQuery(sql);
+            while (rs.next()) {
+                resultado.add(returnUsuario(rs));
+            }
+
+        } catch (SQLException ex) {}
+        return resultado;
+    }
+    public void updateUsuario(Usuario cliente) throws Exception {
+        String aux = "select * from usuario where nombre = '%s'";
+        aux = String.format(aux, cliente.getNombre());
+        ResultSet rs = db.executeQuery(aux);
+        if (rs == null) {
+            throw new Exception("Usuario no existe");
+        } else {
+            String sql = "update "
+                    + "usuario set contraseña= '%s'"
+                    + ", tipo= '%s'"
+                    + " where nombre = '%s'";
+            sql = String.format(sql, cliente.getContraseña(),cliente.getTipo(),
+                    cliente.getNombre());
+            int count = db.executeUpdate(sql);
+            if (count == 0) {
+                throw new Exception("Usuario no existe");
+            }
+        }
+    }
+    public void deleteUsuario(Usuario c) throws Exception {
+        String aux = "select * from usuario where nombre = '%s'";
+        aux = String.format(aux, c.getNombre());
+        ResultSet rs = db.executeQuery(aux);
+        if (rs == null) {
+            throw new Exception("Usuario no existe");
+        } else {
+            String sql = "delete from usuario where nombre = '%s'";
+            sql = String.format(sql, c.getNombre());
+            int count = db.executeUpdate(sql);
+            if (count == 0) {
+                throw new Exception("No se pudo eliminar al Usuario");
+                
+            }
+        }
+    }
+    //----------------Cliente----------------------
     public  List<Cliente> searchClientesId(Cliente filtro) {
         List<Cliente> resultado;
         resultado = new ArrayList<Cliente>();
