@@ -52,8 +52,8 @@ public class FormularioProducto extends java.awt.Dialog implements java.util.Obs
 
         Producto prouctoCurrent = model.getProductoCurrent();
 
-        //this.idFld.setEnabled(model.getModo()==Application.MODO_AGREGAR);
-        //idFld.setText(clienteCurrent.getId());
+        this.IdTex.setEnabled(model.getModo()==Application.MODO_AGREGAR);
+        IdTex.setText(prouctoCurrent.getId());
         if (model.getErrores().get("id") != null) {
             this.idLbl.setBorder(Application.BORDER_ERROR);
             idLbl.setToolTipText(model.getErrores().get("id"));
@@ -62,7 +62,7 @@ public class FormularioProducto extends java.awt.Dialog implements java.util.Obs
             idLbl.setToolTipText("");
         }
 
-        //nombreFld.setText(clienteCurrent.getNombre());
+        this.ColorTex.setText(prouctoCurrent.getColor());
         if (model.getErrores().get("color") != null) {
             this.Colorlbl.setBorder(Application.BORDER_ERROR);
             Colorlbl.setToolTipText(model.getErrores().get("color"));
@@ -70,7 +70,7 @@ public class FormularioProducto extends java.awt.Dialog implements java.util.Obs
             Colorlbl.setBorder(null);
             Colorlbl.setToolTipText("");
         }
-        //apellido1Fld.setText(clienteCurrent.getPrimerApellido());
+        this.TipoTex.setText(prouctoCurrent.getTalla());
         if (model.getErrores().get("talla") != null) {
             this.Tallalbl.setBorder(Application.BORDER_ERROR);
             this.Tallalbl.setToolTipText(model.getErrores().get("talla"));
@@ -78,7 +78,7 @@ public class FormularioProducto extends java.awt.Dialog implements java.util.Obs
             this.Tallalbl.setBorder(null);
             this.Tallalbl.setToolTipText("");
         }
-        //apellido2Fld.setText(clienteCurrent.getSegundoApellido());
+        this.ValorTex.setText(Float.toString(prouctoCurrent.getValor()));
         if (model.getErrores().get("valor") != null) {
             this.Valor.setBorder(Application.BORDER_ERROR);
             this.Valor.setToolTipText(model.getErrores().get("valor"));
@@ -86,7 +86,12 @@ public class FormularioProducto extends java.awt.Dialog implements java.util.Obs
             this.Valor.setBorder(null);
             this.Valor.setToolTipText("");
         }
-        //direccionFld.setText(clienteCurrent.getDireccion());
+        if(prouctoCurrent.getGenero()=="M"){
+            this.MRb.setSelected(true);
+        }
+        else
+            this.FRb.setSelected(true);
+        
         if (model.getErrores().get("genero") != null) {
             this.Generolbl.setBorder(Application.BORDER_ERROR);
             this.Generolbl.setToolTipText(model.getErrores().get("genero"));
@@ -94,7 +99,7 @@ public class FormularioProducto extends java.awt.Dialog implements java.util.Obs
             this.Generolbl.setBorder(null);
             this.Generolbl.setToolTipText("");
         }
-        //telefonoFld.setText(clienteCurrent.getTelefono());
+        this.descripcionTex.setText(prouctoCurrent.getDescripcion());
         if (model.getErrores().get("desc") != null) {
             this.descripcionLbl.setBorder(Application.BORDER_ERROR);
             this.descripcionLbl.setToolTipText(model.getErrores().get("desc"));
@@ -102,6 +107,7 @@ public class FormularioProducto extends java.awt.Dialog implements java.util.Obs
             this.descripcionLbl.setBorder(null);
             this.descripcionLbl.setToolTipText("");
         }
+        this.CantidadTex.setText(Integer.toString(prouctoCurrent.getCantidad()));
         if (model.getErrores().get("cantidad") != null) {
             this.Cantidadlbl.setBorder(Application.BORDER_ERROR);
             this.Cantidadlbl.setToolTipText(model.getErrores().get("cantidad"));
@@ -110,10 +116,12 @@ public class FormularioProducto extends java.awt.Dialog implements java.util.Obs
             this.Cantidadlbl.setToolTipText("");
         }
         this.validate();
+        
         if (!model.getMensaje().equals("")) {
             JOptionPane.showMessageDialog(this, model.getMensaje(), "", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -158,7 +166,7 @@ public class FormularioProducto extends java.awt.Dialog implements java.util.Obs
         buttonGroup1.add(MRb);
         MRb.setText("M");
 
-        AgregarBt.setLabel("Agregar");
+        AgregarBt.setText("Guardar");
         AgregarBt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarBtActionPerformed(evt);

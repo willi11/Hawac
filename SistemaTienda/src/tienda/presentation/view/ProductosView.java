@@ -186,6 +186,13 @@ public class ProductosView extends javax.swing.JDialog implements java.util.Obse
 
     private void agregarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarBtnActionPerformed
          Application.PRODUCTO_VIEW.setLocation(this.agregarBtn.getLocationOnScreen());
+          Application.PRODUCTO_VIEW.CantidadTex.setText("");
+          Application.PRODUCTO_VIEW.IdTex.setText("");
+          Application.PRODUCTO_VIEW.ValorTex.setText("");
+          Application.PRODUCTO_VIEW.ColorTex.setText("");
+          Application.PRODUCTO_VIEW.TipoTex.setText("");
+          Application.PRODUCTO_VIEW.descripcionTex.setText("");
+          Application.PRODUCTO_VIEW.IdTex.setEnabled(true);
  //controller.preAgregar();
          Application.PRODUCTO_VIEW.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_agregarBtnActionPerformed
